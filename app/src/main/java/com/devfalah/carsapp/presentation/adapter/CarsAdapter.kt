@@ -5,10 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.devfalah.carsapp.data.models.Car
 import com.devfalah.carsapp.databinding.CarItemBinding
+import com.devfalah.carsapp.presentation.interfaces.ItemListener
 import com.devfalah.carsapp.utilities.extention.cachedNetworkImage
 
 
-class CarsAdapter(private val items: List<Car>) :
+class CarsAdapter(private val items: List<Car>, private val itemListener: ItemListener) :
     RecyclerView.Adapter<CarsAdapter.CarViewHolder>() {
 
 
@@ -24,6 +25,9 @@ class CarsAdapter(private val items: List<Car>) :
     override fun onBindViewHolder(holder: CarViewHolder, position: Int) {
         val currentCar = items[position]
         holder.binding.apply {
+            cardView.setOnClickListener {
+                itemListener.onClickItem(currentCar)
+            }
             carName.text = currentCar.name
             priceValue.text = "${currentCar.price}$"
             locationValue.text = "${currentCar.country} , ${currentCar.city}"
