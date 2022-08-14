@@ -1,5 +1,7 @@
 package com.devfalah.carsapp.data.models
 
+import com.google.gson.annotations.SerializedName
+
 data class Car(
     val city: String,
     val country: String,
@@ -10,5 +12,6 @@ data class Car(
     val name: String,
     val price: Int,
     val speed: Int,
-    val vendor_name: String
+    @SerializedName("vendor_name")
+    val vendorName: String
 )

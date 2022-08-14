@@ -4,7 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-
     android:padding="10dp">
 
     <ImageView
@@ -18,10 +17,9 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="125dp"
+        android:layout_height="140dp"
         android:backgroundTint="@color/secondary"
         android:layout_marginStart="-45dp"
-
         app:cardCornerRadius="5dp"
         app:cardElevation="20dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -134,6 +132,7 @@
                     android:layout_marginStart="20dp"
                     />
                 <TextView
+                    android:id="@+id/location_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Iraq,Mosul"
@@ -156,6 +155,7 @@
                     android:layout_marginStart="20dp"
                     />
                 <TextView
+                    android:id="@+id/price_value"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2000$"
