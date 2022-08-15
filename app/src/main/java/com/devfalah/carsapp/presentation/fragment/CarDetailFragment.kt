@@ -15,7 +15,7 @@ class CarDetailFragment : BaseFragment<FragmentCarDetailBinding>() {
 
 
     override fun setup() {
-        addCallback()
+
     }
 
     override fun onStart() {
@@ -36,20 +36,17 @@ class CarDetailFragment : BaseFragment<FragmentCarDetailBinding>() {
         }
     }
 
-    private fun addCallback() {
+    override fun addCallback() {
         binding.apply {
             backButton.setOnClickListener {
                 requireActivity().back(this@CarDetailFragment)
             }
             buyButton.setOnClickListener {
-                showMessage("Buy")
+
             }
         }
     }
 
-    private fun showMessage(msg: String) {
-        Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
-    }
 
 
     companion object {

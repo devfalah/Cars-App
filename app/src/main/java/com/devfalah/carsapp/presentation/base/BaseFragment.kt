@@ -14,6 +14,7 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     protected val binding get() = _binding
 
     abstract fun setup()
+    abstract fun addCallback()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,6 +23,7 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     ): View? {
         _binding = bindingInflater()
         setup()
+        addCallback()
         return _binding.root
     }
 

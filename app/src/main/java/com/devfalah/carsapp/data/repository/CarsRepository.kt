@@ -17,7 +17,15 @@ class CarsRepositoryImp(private val carsService: BaseCarsService) : CarsReposito
     override fun getCars(): Flow<State<List<Car>>> {
         return flow {
             emit(State.Loading)
-            emit(carsService.getCars())
+            try {
+                emit(carsService.getCars())
+
+            } catch (e: Exception) {
+                emit(State.Fail(e.message.toString()))
+            }
+
         }.flowOn(Dispatchers.IO)
     }
+
+
 }
