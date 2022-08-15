@@ -26,6 +26,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), ItemListener {
     }
 
     override fun addCallback() {
+        addTryAgainCallback()
+    }
+
+    private fun addTryAgainCallback() {
         binding.tryAgainButton.setOnClickListener {
             getCars()
         }

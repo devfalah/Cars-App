@@ -67,7 +67,7 @@
         android:layout_marginTop="@dimen/medium_margin"
         android:background="@drawable/button"
         android:gravity="center"
-        android:text="Try Again"
+        android:text="@string/try_again"
         style="@style/APPTextSemiBold.Title.Title1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
