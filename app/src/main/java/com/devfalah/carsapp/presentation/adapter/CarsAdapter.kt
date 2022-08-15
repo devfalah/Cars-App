@@ -34,8 +34,6 @@ class CarsAdapter(private val items: List<Car>, private val itemListener: ItemLi
             vendorName.text = currentCar.vendorName
             speedValue.text = "${currentCar.speed} km/h"
             carImg.cachedNetworkImage(this.root, currentCar.imageUrl)
-
-
         }
 
     }

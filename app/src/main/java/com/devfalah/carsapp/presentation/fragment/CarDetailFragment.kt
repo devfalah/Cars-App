@@ -1,13 +1,13 @@
 package com.devfalah.carsapp.presentation.fragment
 
 import android.os.Bundle
-import android.widget.Toast
 import com.devfalah.carsapp.R
 import com.devfalah.carsapp.data.models.Car
 import com.devfalah.carsapp.databinding.FragmentCarDetailBinding
 import com.devfalah.carsapp.presentation.base.BaseFragment
 import com.devfalah.carsapp.utilities.extention.back
 import com.devfalah.carsapp.utilities.extention.cachedNetworkImage
+import com.devfalah.carsapp.utilities.extention.navigateAndReplaceTo
 
 class CarDetailFragment : BaseFragment<FragmentCarDetailBinding>() {
     override fun bindingInflater(): FragmentCarDetailBinding =
@@ -20,9 +20,11 @@ class CarDetailFragment : BaseFragment<FragmentCarDetailBinding>() {
 
     override fun onStart() {
         super.onStart()
-        val car = arguments?.getParcelable<Car>(KEY)!!
+        val car = getCarFromArguments()
         bindView(car)
     }
+
+    private fun getCarFromArguments(): Car = arguments?.getParcelable(KEY)!!
 
     private fun bindView(car: Car) {
         binding.apply {
@@ -37,16 +39,21 @@ class CarDetailFragment : BaseFragment<FragmentCarDetailBinding>() {
     }
 
     override fun addCallback() {
-        binding.apply {
-            backButton.setOnClickListener {
-                requireActivity().back(this@CarDetailFragment)
-            }
-            buyButton.setOnClickListener {
+        addBackButtonCallback()
+        addBuyButtonCallback()
+    }
 
-            }
+    private fun addBuyButtonCallback() {
+        binding.buyButton.setOnClickListener {
+            requireActivity().navigateAndReplaceTo(SuccessFragment())
         }
     }
 
+    private fun addBackButtonCallback() {
+        binding.backButton.setOnClickListener {
+            requireActivity().back(this@CarDetailFragment)
+        }
+    }
 
 
     companion object {
