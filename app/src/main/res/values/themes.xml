@@ -16,4 +16,26 @@
         <item name="android:windowTranslucentNavigation">true</item>
         <item name="android:windowTranslucentStatus">true</item>
     </style>
+    <style name="APPTextRegular" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/poppins_regular</item>
+    </style>
+    <style name="APPTextSemiBold" parent="Widget.AppCompat.TextView">
+        <item name="fontFamily">@font/poppins_semi_bold</item>
+    </style>
+    <style name="APPTextSemiBold.Title">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="APPTextSemiBold.Title.Title1">
+        <item name="android:textSize">@dimen/large_text_size</item>
+    </style>
+    <style name="APPTextSemiBold.Title.Title2">
+        <item name="android:textSize">@dimen/medium_text_size</item>
+        <item name="android:textColor">@color/subtext</item>
+    </style>
+    <style name="APPTextRegular.Subtitle1">
+        <item name="android:textSize">@dimen/small_text_size</item>
+        <item name="android:textColor">@color/subtext</item>
+    </style>
+
 </resources>
