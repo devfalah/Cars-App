@@ -1,7 +1,10 @@
 package com.devfalah.carsapp.data.models
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Car(
     @SerializedName("city")
     val city: String,
@@ -23,4 +26,4 @@ data class Car(
     val speed: Int,
     @SerializedName("vendor_name")
     val vendorName: String,
-)
+) : Parcelable

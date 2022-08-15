@@ -8,12 +8,14 @@ import com.devfalah.carsapp.data.services.CarsService
 import com.devfalah.carsapp.databinding.FragmentHomeBinding
 import com.devfalah.carsapp.presentation.adapter.CarsAdapter
 import com.devfalah.carsapp.presentation.base.BaseFragment
+import com.devfalah.carsapp.presentation.interfaces.ItemListener
 import com.devfalah.carsapp.utilities.extention.hide
+import com.devfalah.carsapp.utilities.extention.navigateTo
 import com.devfalah.carsapp.utilities.extention.show
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class HomeFragment : BaseFragment<FragmentHomeBinding>() {
+class HomeFragment : BaseFragment<FragmentHomeBinding>(), ItemListener {
     override fun bindingInflater(): FragmentHomeBinding =
         FragmentHomeBinding.inflate(layoutInflater)
 
@@ -42,8 +44,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     private fun onResponseSuccess(cars: List<Car>) {
         binding.loading.hide()
-        val carsAdapter = CarsAdapter(cars)
+        val carsAdapter = CarsAdapter(cars, this)
         binding.carRecyclerView.adapter = carsAdapter
+
     }
 
     private fun onResponseLoading() {
@@ -54,5 +57,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     }
 
-
+    override fun onClickItem(car: Car) {
+        requireActivity().navigateTo(CarDetailFragment.newInstance(car))
+    }
 }
