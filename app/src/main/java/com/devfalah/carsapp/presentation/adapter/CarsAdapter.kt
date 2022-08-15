@@ -16,18 +16,20 @@ class CarsAdapter(private val items: List<Car>) :
         RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CarViewHolder {
-        return CarViewHolder(CarItemBinding.inflate(LayoutInflater.from(parent.context), parent,false))
+        return CarViewHolder(CarItemBinding.inflate(LayoutInflater.from(parent.context),
+            parent,
+            false))
     }
 
     override fun onBindViewHolder(holder: CarViewHolder, position: Int) {
         val currentCar = items[position]
         holder.binding.apply {
-             carName.text = currentCar.name
+            carName.text = currentCar.name
             priceValue.text = "${currentCar.price}$"
             locationValue.text = "${currentCar.country} , ${currentCar.city}"
             vendorName.text = currentCar.vendorName
             speedValue.text = "${currentCar.speed} km/h"
-            carImg.cachedNetworkImage(this.root,currentCar.imageUrl)
+            carImg.cachedNetworkImage(this.root, currentCar.imageUrl)
 
 
         }
