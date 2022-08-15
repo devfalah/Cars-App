@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Cars App</string>
     <string name="km_per_hour">km/h</string>
+    <string name="buy_text">Buy</string>
+    <string name="overview_text">Overview</string>
 
 </resources>
