@@ -21,11 +21,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), ItemListener {
 
     private val carsRepository = CarsRepositoryImp(CarsService)
 
-
     override fun setup() {
         getCars()
+    }
 
-
+    override fun addCallback() {
+        binding.tryAgainButton.setOnClickListener {
+            getCars()
+        }
     }
 
     private fun getCars() {
@@ -36,28 +39,54 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), ItemListener {
 
     private fun onGetResponse(state: State<List<Car>>) {
         when (state) {
-            is State.Fail -> onResponseFail()
+            is State.Fail -> onResponseFail(state.message)
             State.Loading -> onResponseLoading()
             is State.Success -> onResponseSuccess(state.data)
         }
     }
 
     private fun onResponseSuccess(cars: List<Car>) {
-        binding.loading.hide()
-        val carsAdapter = CarsAdapter(cars, this)
-        binding.carRecyclerView.adapter = carsAdapter
-
+        hideLoadingAndHideErrorView()
+        setupCarsAdapter(cars)
     }
 
     private fun onResponseLoading() {
-        binding.loading.show()
+        showLoadingAndHideErrorView()
     }
 
-    private fun onResponseFail() {
-
+    private fun onResponseFail(message: String) {
+        hideLoadingAndShowErrorView()
     }
 
     override fun onClickItem(car: Car) {
         requireActivity().navigateTo(CarDetailFragment.newInstance(car))
     }
+
+    private fun setupCarsAdapter(cars: List<Car>) {
+        val carsAdapter = CarsAdapter(cars, this)
+        binding.carRecyclerView.adapter = carsAdapter
+    }
+
+    private fun hideLoadingAndHideErrorView() {
+        binding.apply {
+            errorView.hide()
+            loading.hide()
+        }
+    }
+
+    private fun showLoadingAndHideErrorView() {
+        binding.apply {
+            errorView.hide()
+            loading.show()
+        }
+    }
+
+    private fun hideLoadingAndShowErrorView() {
+        binding.apply {
+            loading.hide()
+            errorView.show()
+        }
+    }
+
+
 }

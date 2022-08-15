@@ -3,5 +3,6 @@
     <string name="km_per_hour">km/h</string>
     <string name="buy_text">Buy</string>
     <string name="overview_text">Overview</string>
+    <string name="error_text">You are Not Connected to the Internet</string>
 
 </resources>
