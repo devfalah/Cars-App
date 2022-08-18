@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/primary"
     android:orientation="vertical"
-    tools:context=".presentation.MainActivity">
+    tools:context=".ui.MainActivity">
 
     <LinearLayout
         android:id="@+id/app_bar"
@@ -61,7 +61,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/try_again_button"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="@dimen/button_height"
         android:layout_marginHorizontal="@dimen/medium_margin"
         android:elevation="@dimen/large_elevation"
         android:layout_marginTop="@dimen/medium_margin"

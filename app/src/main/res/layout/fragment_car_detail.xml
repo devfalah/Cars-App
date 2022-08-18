@@ -57,8 +57,8 @@
 
             <ImageView
                 android:id="@+id/car_img"
-                android:layout_width="240dp"
-                android:layout_height="240dp"
+                android:layout_width="@dimen/car_image_detail_width"
+                android:layout_height="@dimen/car_image_detail_height"
                 android:layout_gravity="center"
                 android:layout_marginBottom="2dp"
                 android:elevation="@dimen/large_elevation"
@@ -66,26 +66,24 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:src="@drawable/car"
-
                 />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView"
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
+                android:layout_height="@dimen/card_detail_height"
                 android:layout_marginHorizontal="@dimen/medium_margin"
                 android:layout_marginTop="@dimen/medium_margin"
                 android:backgroundTint="@color/secondary"
-                app:cardCornerRadius="16dp"
+                app:cardCornerRadius="@dimen/medium_radius"
                 app:cardElevation="@dimen/medium_elevation"
                 app:layout_constraintStart_toStartOf="parent"
-
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/vendor_img"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="@dimen/vendor_image_size"
+                android:layout_height="@dimen/vendor_image_size"
                 android:layout_marginTop="@dimen/medium_margin"
                 android:src="@drawable/man"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -120,15 +118,15 @@
 
                     <ImageView
                         android:id="@+id/speed"
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
+                        android:layout_width="@dimen/icon_detail_size"
+                        android:layout_height="@dimen/icon_detail_size"
                         android:src="@drawable/speed" />
 
                     <TextView
                         android:id="@+id/speed_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="6dp"
+                        android:layout_marginStart="@dimen/very_small_margin"
                        style="@style/APPTextRegular.Subtitle1"
                        />
                 </LinearLayout>
@@ -141,15 +139,15 @@
 
                     <ImageView
                         android:id="@+id/location"
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
+                        android:layout_width="@dimen/icon_detail_size"
+                        android:layout_height="@dimen/icon_detail_size"
                         android:src="@drawable/location" />
 
                     <TextView
                         android:id="@+id/location_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="6dp"
+                        android:layout_marginStart="@dimen/very_small_margin"
                         style="@style/APPTextRegular.Subtitle1"
  />
                 </LinearLayout>
@@ -161,15 +159,15 @@
 
                     <ImageView
                         android:id="@+id/price"
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
+                        android:layout_width="@dimen/icon_detail_size"
+                        android:layout_height="@dimen/icon_detail_size"
                         android:src="@drawable/price" />
 
                     <TextView
                         android:id="@+id/price_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="6dp"
+                        android:layout_marginStart="@dimen/very_small_margin"
                         style="@style/APPTextRegular.Subtitle1"
                          />
                 </LinearLayout>
@@ -194,9 +192,9 @@
                     android:textStyle="bold" />
 
                 <View
-                    android:layout_width="30dp"
+                    android:layout_width="@dimen/line_width"
                     android:layout_height="1dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="@dimen/very_small_margin"
                     android:background="@color/blue"
                     android:orientation="vertical" />
 
@@ -204,7 +202,7 @@
                     android:id="@+id/description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="@dimen/small_margin"
                     android:letterSpacing="0.1"
                     android:lineSpacingExtra="1dp"
                     android:textColor="@color/subtext"
@@ -213,7 +211,7 @@
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/buy_button"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="@dimen/button_height"
                     android:elevation="@dimen/large_elevation"
                     android:layout_marginTop="@dimen/medium_margin"
                     android:layout_marginBottom="@dimen/large_margin"

@@ -1,4 +1,4 @@
-package com.devfalah.carsapp.presentation.interfaces
+package com.devfalah.carsapp.ui.interfaces
 
 import com.devfalah.carsapp.data.models.Car
 

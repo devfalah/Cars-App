@@ -1,4 +1,4 @@
-package com.devfalah.carsapp.presentation.base
+package com.devfalah.carsapp.ui.base
 
 import android.os.Bundle
 import android.view.LayoutInflater

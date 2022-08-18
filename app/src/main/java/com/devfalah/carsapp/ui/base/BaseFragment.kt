@@ -1,4 +1,4 @@
-package com.devfalah.carsapp.presentation.base
+package com.devfalah.carsapp.ui.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,9 +12,7 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     private lateinit var _binding: VB
     abstract fun bindingInflater(): VB
     protected val binding get() = _binding
-
     abstract fun setup()
-    abstract fun addCallback()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -23,7 +21,6 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     ): View? {
         _binding = bindingInflater()
         setup()
-        addCallback()
         return _binding.root
     }
 

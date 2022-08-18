@@ -1,10 +1,10 @@
-package com.devfalah.carsapp.presentation.fragment
+package com.devfalah.carsapp.ui.fragment
 
 import android.os.Bundle
 import com.devfalah.carsapp.R
 import com.devfalah.carsapp.data.models.Car
 import com.devfalah.carsapp.databinding.FragmentCarDetailBinding
-import com.devfalah.carsapp.presentation.base.BaseFragment
+import com.devfalah.carsapp.ui.base.BaseFragment
 import com.devfalah.carsapp.utilities.extention.back
 import com.devfalah.carsapp.utilities.extention.cachedNetworkImage
 import com.devfalah.carsapp.utilities.extention.navigateAndReplaceTo
@@ -15,7 +15,24 @@ class CarDetailFragment : BaseFragment<FragmentCarDetailBinding>() {
 
 
     override fun setup() {
+        addCallback()
+    }
 
+    private fun addCallback() {
+        addBackButtonCallback()
+        addBuyButtonCallback()
+    }
+
+    private fun addBuyButtonCallback() {
+        binding.buyButton.setOnClickListener {
+            requireActivity().navigateAndReplaceTo(SuccessFragment())
+        }
+    }
+
+    private fun addBackButtonCallback() {
+        binding.backButton.setOnClickListener {
+            requireActivity().back(this@CarDetailFragment)
+        }
     }
 
     override fun onStart() {
@@ -35,23 +52,6 @@ class CarDetailFragment : BaseFragment<FragmentCarDetailBinding>() {
             priceValue.text = "${car.price} $"
             speedValue.text = "${car.speed} ${getString(R.string.km_per_hour)}"
             locationValue.text = "${car.country} , ${car.city}"
-        }
-    }
-
-    override fun addCallback() {
-        addBackButtonCallback()
-        addBuyButtonCallback()
-    }
-
-    private fun addBuyButtonCallback() {
-        binding.buyButton.setOnClickListener {
-            requireActivity().navigateAndReplaceTo(SuccessFragment())
-        }
-    }
-
-    private fun addBackButtonCallback() {
-        binding.backButton.setOnClickListener {
-            requireActivity().back(this@CarDetailFragment)
         }
     }
 
