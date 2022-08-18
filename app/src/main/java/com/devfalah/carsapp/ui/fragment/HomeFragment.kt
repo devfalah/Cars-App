@@ -1,4 +1,4 @@
-package com.devfalah.carsapp.presentation.fragment
+package com.devfalah.carsapp.ui.fragment
 
 import androidx.lifecycle.lifecycleScope
 import com.devfalah.carsapp.data.State
@@ -6,9 +6,9 @@ import com.devfalah.carsapp.data.models.Car
 import com.devfalah.carsapp.data.repository.CarsRepositoryImp
 import com.devfalah.carsapp.data.services.CarsService
 import com.devfalah.carsapp.databinding.FragmentHomeBinding
-import com.devfalah.carsapp.presentation.adapter.CarsAdapter
-import com.devfalah.carsapp.presentation.base.BaseFragment
-import com.devfalah.carsapp.presentation.interfaces.ItemListener
+import com.devfalah.carsapp.ui.adapter.CarsAdapter
+import com.devfalah.carsapp.ui.base.BaseFragment
+import com.devfalah.carsapp.ui.interfaces.ItemListener
 import com.devfalah.carsapp.utilities.extention.hide
 import com.devfalah.carsapp.utilities.extention.navigateTo
 import com.devfalah.carsapp.utilities.extention.show
@@ -23,21 +23,20 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), ItemListener {
 
     override fun setup() {
         getCars()
+        addTryAgainButtonCallback()
     }
 
-    override fun addCallback() {
-        addTryAgainCallback()
-    }
 
-    private fun addTryAgainCallback() {
+    private fun addTryAgainButtonCallback() {
         binding.tryAgainButton.setOnClickListener {
             getCars()
         }
     }
 
     private fun getCars() {
+        val carsFlow=carsRepository.getCars()
         lifecycleScope.launch(Dispatchers.Main) {
-            carsRepository.getCars().collect(::onGetResponse)
+           carsFlow.collect(::onGetResponse)
         }
     }
 
@@ -50,8 +49,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), ItemListener {
     }
 
     private fun onResponseSuccess(cars: List<Car>) {
-        hideLoadingAndHideErrorView()
         setupCarsAdapter(cars)
+        hideLoadingAndHideErrorView()
     }
 
     private fun onResponseLoading() {

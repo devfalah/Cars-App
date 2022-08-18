@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/car_img"
-        android:layout_width="90dp"
-        android:layout_height="140dp"
+        android:layout_width="@dimen/car_image_width"
+        android:layout_height="@dimen/car_image_height"
         android:elevation="@dimen/large_elevation"
         android:scaleType="fitCenter"
         android:src="@drawable/car" />
@@ -16,7 +16,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="@dimen/home_card_height"
         android:layout_marginStart="-60dp"
         android:layout_marginEnd="@dimen/very_small_margin"
         android:backgroundTint="@color/secondary"
@@ -75,7 +75,7 @@
                 app:layout_constraintTop_toTopOf="@id/vendor_img" />
 
             <View
-                android:layout_width="40dp"
+                android:layout_width="@dimen/line_width"
                 android:layout_height="1dp"
                 android:layout_marginTop="@dimen/very_small_margin"
                 android:background="@color/blue"
